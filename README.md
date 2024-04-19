@@ -5,8 +5,8 @@
 ## 安装
 
 ```yaml
-helm repo add keda-tencentcloud-clb-scaler https://imroc.github.io/keda-tencentcloud-clb-scaler
-helm install keda-tencentcloud-clb-scaler keda-tencentcloud-clb-scaler/keda-tencentcloud-clb-scaler -n keda
+helm repo add clb-scaler https://imroc.github.io/keda-tencentcloud-clb-scaler
+helm install clb-scaler clb-scaler/clb-scaler -n keda
 ```
 
 ## 用法

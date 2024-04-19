@@ -35,3 +35,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# region: "ap-guangzhou"
+# timeZone: "Asia/Shanghai"
+
+credentials:
+  {}
+  # secretId: ""
+  # secretKey: ""
