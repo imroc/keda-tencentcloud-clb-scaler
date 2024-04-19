@@ -3,6 +3,16 @@ entries:
   clb-scaler:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-04-19T09:27:53.484049895Z"
+    description: Helm chart for keda external scaler of tencentcloud clb
+    digest: c081d120b6466c589066d63e5d383ec7df560c5420df77189c7c1374a5733e31
+    name: clb-scaler
+    type: application
+    urls:
+    - https://github.com/imroc/keda-tencentcloud-clb-scaler/releases/download/clb-scaler-0.1.4/clb-scaler-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-04-19T08:44:47.582454271Z"
     description: Helm chart for keda external scaler of tencentcloud clb
     digest: 724b9ce7cc78c60bb14ea585f92f26998f2fb5f13da5911512ffcf244021cc1b
@@ -32,4 +42,4 @@ entries:
     urls:
     - https://github.com/imroc/keda-tencentcloud-clb-scaler/releases/download/keda-tencentcloud-clb-scaler-0.1.1/keda-tencentcloud-clb-scaler-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-19T08:44:47.582487534Z"
+generated: "2024-04-19T09:27:53.48406303Z"
