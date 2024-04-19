@@ -2,6 +2,13 @@
 
 作为 KEDA 的 External Scaler，基于腾讯云 CLB 的监控数据实现自动伸缩（如 CLB 的连接数、流量、QPS 等数据）。
 
+## 安装
+
+```yaml
+helm repo add keda-tencentcloud-clb-scaler https://imroc.github.io/keda-tencentcloud-clb-scaler
+helm install keda-tencentcloud-clb-scaler keda-tencentcloud-clb-scaler/keda-tencentcloud-clb-scaler -n keda
+```
+
 ## 用法
 
 基于 CLB 连接数伸缩：
