@@ -6,7 +6,10 @@
 
 ```yaml
 helm repo add clb-scaler https://imroc.github.io/keda-tencentcloud-clb-scaler
-helm install clb-scaler clb-scaler/clb-scaler -n keda
+helm upgrade --install clb-scaler clb-scaler/clb-scaler -n keda \
+  --region="ap-chengdu" \
+  --credentials.secretId="xxx" \
+  --credentials.secretKey="xxx"
 ```
 
 ## 用法
