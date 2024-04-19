@@ -33,7 +33,6 @@ spec:
     - type: external-push
       metadata:
         scalerAddress: tencentcloud-clb-scaler:9000
-        region: ap-guangzhou
         loadBalancerId: lb-xxxxxxxx
         metricName: ClientConnum
         threshold: "100" # 每个 Pod 处理 100 条连接
@@ -59,7 +58,6 @@ spec:
     - type: external-push
       metadata:
         scalerAddress: tencentcloud-clb-scaler:9000
-        region: ap-chengdu
         loadBalancerId: lb-xxxxxxxx
         metricName: TotalReq
         threshold: "500" # 平均每个 Pod 支撑 500 QPS
