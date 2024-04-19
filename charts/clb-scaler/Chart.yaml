@@ -1,0 +1,9 @@
+apiVersion: v2
+name: clb-scaler
+description: Helm chart for keda external scaler of tencentcloud clb
+
+type: application
+
+version: 0.1.2
+
+appVersion: "0.1.0"

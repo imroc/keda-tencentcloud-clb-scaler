@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "keda-tencentcloud-clb-scaler.fullname" . }}
+  name: {{ include "clb-scaler.fullname" . }}
   labels:
-    {{- include "keda-tencentcloud-clb-scaler.labels" . | nindent 4 }}
+    {{- include "clb-scaler.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "keda-tencentcloud-clb-scaler.selectorLabels" . | nindent 6 }}
+      {{- include "clb-scaler.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "keda-tencentcloud-clb-scaler.labels" . | nindent 8 }}
+        {{- include "clb-scaler.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}

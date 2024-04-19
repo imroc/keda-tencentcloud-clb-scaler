@@ -1,9 +1,0 @@
-apiVersion: v2
-name: keda-tencentcloud-clb-scaler
-description: Helm chart for keda-tencentcloud-clb-scaler
-
-type: application
-
-version: 0.1.1
-
-appVersion: "0.1.0"
