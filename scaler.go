@@ -195,21 +195,24 @@ func (scaler *ClbScaler) GetMetrics(ctx context.Context, gmr *pb.GetMetricsReque
 	if err != nil {
 		return nil, err
 	}
-	if len(resp.Response.DataPoints) == 0 || len(resp.Response.DataPoints[0].MaxValues) == 0 {
-		return nil, errors.New("no data points found")
-	}
-	dataPoint := resp.Response.DataPoints[0]
-	metricValue := dataPoint.MaxValues[len(dataPoint.MaxValues)-1] // get the latest data point
 	lis := gmr.ScaledObjectRef.ScalerMetadata["listener"]
 	if lis != "" {
 		lis = "listener " + lis + ","
 	}
-	log.Printf("metric %s(%s) of %s(%s%s) is %f(unit:%s)\n", metricInfo.MetricName, metricInfo.MetricEName, clbInfo.ID, lis, clbInfo.LoadBalancerType, *metricValue, metricInfo.Unit)
+	var metricValue int64
+	if !(len(resp.Response.DataPoints) == 0 || len(resp.Response.DataPoints[0].MaxValues) == 0) {
+		dataPoint := resp.Response.DataPoints[0]
+		v := dataPoint.MaxValues[len(dataPoint.MaxValues)-1] // get the latest data point
+		if v != nil {
+			metricValue = int64(*v)
+		}
+	}
+	log.Printf("metric %s(%s) of %s(%s%s) is %d(unit:%s)\n", metricInfo.MetricName, metricInfo.MetricEName, clbInfo.ID, lis, clbInfo.LoadBalancerType, metricValue, metricInfo.Unit)
 	return &pb.GetMetricsResponse{
 		MetricValues: []*pb.MetricValue{
 			{
 				MetricName:  gmr.MetricName,
-				MetricValue: int64(*metricValue),
+				MetricValue: metricValue,
 			},
 		},
 	}, nil
