@@ -2,6 +2,30 @@
 
 keda-tencentcloud-clb-scaler 是基于腾讯云 CLB 监控指标的 KEDA External Scaler，可实现基于 CLB 连接数、QPS 和带宽等指标的弹性伸缩。
 
+## 准备访问密钥
+
+需要准备一个腾讯云账号的访问密钥(SecretID、SecretKey)，参考[子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)，要求账号至少具有以下权限：
+
+```json
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "clb.DescribeLoadBalancers",
+                "monitor.DescribeProductList",
+                "monitor.GetMonitorData",
+                "monitor.DescribeBaseMetrics"
+            ],
+            "resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
 ## 安装
 
 ```yaml
